@@ -5,12 +5,12 @@ from fastapi.responses import JSONResponse
 from app.config import settings
 from app.database import Base, engine
 from app import models  # noqa: F401 — ensures models are registered before create_all
-from app.routers import documents, analyze, translate, history
+from app.routers import documents, analyze, translate, history, chat
 from app.services.ai_provider import AIProviderError
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="MedLingo AI API", version="1.0.0")
+app = FastAPI(title="MedLingo AI API", version="1.1.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -35,3 +35,4 @@ app.include_router(documents.router)
 app.include_router(analyze.router)
 app.include_router(translate.router)
 app.include_router(history.router)
+app.include_router(chat.router)

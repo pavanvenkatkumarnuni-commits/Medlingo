@@ -4,40 +4,31 @@ import SafetyBanner from '../components/SafetyBanner';
 export default function Home() {
   return (
     <div className="container" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-      <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 2.5rem' }}>
+      <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto 2.5rem' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--ai-100)', color: 'var(--ai-600)', fontSize: '0.78rem', fontWeight: 700, padding: '0.35em 0.9em', borderRadius: 999, marginBottom: '1rem' }}>
           AI-POWERED · PLAIN-LANGUAGE MEDICAL HELP
         </div>
         <h1>Understand your medical information in simple language.</h1>
         <p>
-          Upload a prescription or paste medical text, and MedLingo AI will identify medicines,
-          dosages and instructions, explain them in plain language, and translate the explanation
-          into your language.
+          Upload a prescription or paste medical text, and MedLingo AI will identify possible
+          medicines, dosages and instructions, explain them in plain language, and translate the
+          explanation into your language. You can also ask general questions by text or voice.
         </p>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', marginBottom: '2.5rem' }}>
-        <ActionCard
-          to="/upload"
-          icon={<UploadIcon />}
-          title="Upload Prescription"
+        <ActionCard to="/upload" icon={<UploadIcon />} title="Upload Prescription"
           desc="Upload a photo or PDF of a prescription. We'll extract the text automatically."
-          cta="Upload a file"
-        />
-        <ActionCard
-          to="/analyze"
-          icon={<TextIcon />}
-          title="Enter Medical Text"
-          desc="Paste prescription text or medical terminology directly for instant analysis."
-          cta="Enter text"
-        />
-        <ActionCard
-          to="/history"
-          icon={<HistoryIcon />}
-          title="View History"
+          cta="Upload a file" />
+        <ActionCard to="/analyze" icon={<TextIcon />} title="Enter Medical Text"
+          desc="Paste prescription text or medical terminology directly for a plain-language explanation."
+          cta="Enter text" />
+        <ActionCard to="/chat" icon={<ChatIcon />} title="Voice & Medical Chat"
+          desc="Ask general medicine and medical terminology questions, speak your question, or listen to a reply."
+          cta="Ask a question" />
+        <ActionCard to="/history" icon={<HistoryIcon />} title="View History"
           desc="Revisit past analyses — see detected medicines and reopen full explanations."
-          cta="View history"
-        />
+          cta="View history" />
       </div>
 
       <div style={{ maxWidth: 720, margin: '0 auto' }}>
@@ -50,10 +41,7 @@ export default function Home() {
 function ActionCard({ to, icon, title, desc, cta }) {
   return (
     <Link to={to} className="card" style={{ padding: '1.5rem', textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column', gap: 10 }}>
-      <div style={{
-        width: 44, height: 44, borderRadius: 10, background: 'var(--clinical-100)', color: 'var(--clinical-700)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-      }}>
+      <div style={{ width: 44, height: 44, borderRadius: 10, background: 'var(--clinical-100)', color: 'var(--clinical-700)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {icon}
       </div>
       <h3 style={{ margin: 0 }}>{title}</h3>
@@ -68,6 +56,9 @@ function UploadIcon() {
 }
 function TextIcon() {
   return <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>;
+}
+function ChatIcon() {
+  return <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 11.5a7.5 7.5 0 01-8 7.5 8.5 8.5 0 01-3.4-.7L4 20l1.4-4A7.2 7.2 0 014 11.5 7.5 7.5 0 0112 4a7.5 7.5 0 018 7.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
 function HistoryIcon() {
   return <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="13" r="8" stroke="currentColor" strokeWidth="2" /><path d="M12 9v4l3 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><path d="M9 3l3-1 3 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>;

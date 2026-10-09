@@ -5,6 +5,7 @@ import UploadPrescription from './pages/UploadPrescription';
 import TextAnalyzer from './pages/TextAnalyzer';
 import Results from './pages/Results';
 import History from './pages/History';
+import MedicalChat from './pages/MedicalChat';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/upload" element={<UploadPrescription />} />
         <Route path="/analyze" element={<TextAnalyzer />} />
+        <Route path="/chat" element={<MedicalChat />} />
         <Route path="/results/:id" element={<Results />} />
         <Route path="/history" element={<History />} />
         <Route path="*" element={<Home />} />
