@@ -148,6 +148,7 @@ export default function MedicalChat() {
             <span className="hint">{message.length}/2000</span>
           </div>
           {voiceStatus && <p className="hint" role="status" style={{ marginBottom: 0 }}>{voiceStatus}</p>}
+          {!SpeechRecognition && <p className="hint" style={{ marginBottom: 0 }}>Voice input is not supported in this browser. You can still type questions and use read-aloud replies.</p>}
           {error && <p className="error-text" role="alert">{error}</p>}
         </form>
       </section>
