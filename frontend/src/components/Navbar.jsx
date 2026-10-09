@@ -12,9 +12,9 @@ export default function Navbar() {
 
   return (
     <header style={{ borderBottom: '1px solid var(--line)', background: 'var(--surface-raised)', position: 'sticky', top: 0, zIndex: 30 }}>
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', minHeight: 64, gap: 16, flexWrap: 'wrap', paddingTop: 8, paddingBottom: 8 }}>
         <NavLink to="/" style={{ display: 'flex', alignItems: 'center', gap: 9, textDecoration: 'none' }}>
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
             <rect x="2" y="2" width="24" height="24" rx="7" fill="#14547A" />
             <path d="M14 8v12M8 14h12" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
             <circle cx="20.5" cy="7.5" r="3.5" fill="#5B5FEF" />
@@ -24,10 +24,11 @@ export default function Navbar() {
           </span>
         </NavLink>
 
-        <nav style={{ display: 'flex', gap: '1.5rem' }}>
+        <nav aria-label="Main navigation" style={{ display: 'flex', gap: 'clamp(0.65rem, 2vw, 1.5rem)', flexWrap: 'wrap' }}>
           <NavLink to="/" style={linkStyle} end>Home</NavLink>
           <NavLink to="/upload" style={linkStyle}>Upload Prescription</NavLink>
           <NavLink to="/analyze" style={linkStyle}>Enter Text</NavLink>
+          <NavLink to="/chat" style={linkStyle}>Voice & Chat</NavLink>
           <NavLink to="/history" style={linkStyle}>History</NavLink>
         </nav>
       </div>
